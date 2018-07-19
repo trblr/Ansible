@@ -1,0 +1,10 @@
+--- # conditions use when key word
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  tasks:
+    - command: echo {{item}}
+      with_items: [0, 2, 4, 6, 8, 10]
+      when: item > 5
+    

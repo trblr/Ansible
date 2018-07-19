@@ -1,0 +1,7 @@
+--- # Master play book for webservers
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  roles:
+   - webservers

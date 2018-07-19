@@ -1,0 +1,17 @@
+--- # My second yaml file
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  vars_prompt:
+  - name: pkgname
+    prompt: Enter the package to install
+  tasks:
+    - name: Install httpd server on rhel
+      action: yum name='{{pkgname}}' state=installed
+      notify: Restart HTTPD
+  handlers:
+    - name: Restart HTTPD # This has to match the notify name#
+      action: service name=httpd state=restarted
+

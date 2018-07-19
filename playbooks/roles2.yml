@@ -1,0 +1,9 @@
+--- # Master play book for webservers
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  roles:
+  - { role: redhatwebservers,  when: ansible_os_family == "debian" }
+  - { role: debianwebservers, when: ansible_os_family == "Red Hat Enterprise Linux Server" }
+

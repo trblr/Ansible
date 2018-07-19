@@ -1,0 +1,12 @@
+--- # My second yaml file
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  vars_files:
+  - vars.yml
+  tasks:
+    - name: Install httpd server on rhel
+      action: yum name='{{pkgname}}' state=installed
+

@@ -1,0 +1,12 @@
+--- # wait for task it willl check the condition and execute other wise it wait untill next window
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install httpd server
+      yum: pkg=httpd state=latest
+    - name: wait for the service to check if a file exists
+      wait_for:
+       path: /home/ansible1/playbooks/waitforme

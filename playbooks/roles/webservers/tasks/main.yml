@@ -1,0 +1,8 @@
+- name: Install Apache on redhat
+  yum: pkg=httpd state=latest
+  #yum: pkg='{{ redhat_apache}}' state=latest
+  when: ansible_os_family == "Red Hat Enterprise Linux Server"
+  notify: Restart Apache
+- name: Install apache for redhat
+  apt: pkg=apache2 state=latest
+  when: ansible_os_family == "Debian"

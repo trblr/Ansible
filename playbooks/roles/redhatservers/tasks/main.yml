@@ -1,0 +1,5 @@
+- name: Install Apache on redhat
+  yum: pkg=httpd state=latest
+  #yum: pkg='{{ redhat_apache}}' state=latest
+  when: ansible_os_family == "Red Hat Enterprise Linux Server"
+  notify: Restart Apache

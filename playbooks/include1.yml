@@ -1,0 +1,6 @@
+--- # include1 u=yml file re use this file
+- name: Install apache
+  action: yum name=httpd state=installed
+  run_once: true
+  delegate_to: rd1013.manhdev.com
+  notify: restart httpd

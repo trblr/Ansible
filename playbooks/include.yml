@@ -1,0 +1,8 @@
+--- # Include we can use and re use the tasks 
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+   - include: include1.yml

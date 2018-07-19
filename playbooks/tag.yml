@@ -1,0 +1,16 @@
+--- #tags we can creta and call that particlur tags while running
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+   - name: first_name
+     raw: echo "Sayad" > /tmp/log
+     tags: 
+        - firstname
+   - name: second_name
+     raw: echo "Saddam" > /tmp/log
+     tags:
+        - secondname
+

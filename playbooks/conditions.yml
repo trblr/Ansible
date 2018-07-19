@@ -1,0 +1,17 @@
+--- # conditions use when key word
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  tasks:
+    - name: Install apche for debian
+      command: apt-get -y install apache2
+      when: ansible_os_family == "Debian"
+    - name: Install apache for redhat
+      command: yum -y install httpd
+      when: ansible_os_family == "Redhat"
+    - name: Install apache for redhat RHEL
+      command: yum -y install httpd
+      when: ansible_os_family == "rhel"
+
+    
